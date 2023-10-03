@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import auth from "../../../Firebase/firebase.config";
+import { AuthContext } from "../../../Providers/AuthProvider";
 import userDefaultImg from "../../../assets/user.png";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut(auth);
+  };
   const navLinks = (
     <>
       <li>
@@ -17,7 +25,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mb-6">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,9 +61,20 @@ const Navbar = () => {
             <img src={userDefaultImg} alt="" />
           </div>
         </label>
-        <Link className="btn" to="/login">
-          Login
-        </Link>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="bg-black text-white font-bold py-2 px-4 rounded"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="bg-black text-white font-bold py-2 px-4 rounded">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

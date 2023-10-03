@@ -13,8 +13,10 @@ const LeftSideNav = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">All Categories</h1>
+    <div className="space-y-6 text-center">
+      <h1 className="text-2xl font-semibold text-left pl-4 pt-4">
+        All Categories
+      </h1>
       {categories.map((category) => (
         <NavLink
           className="block text-lg font-medium px-4"
@@ -35,7 +37,7 @@ const LeftSideNav = () => {
               Bayern Slams Authorities Over Flight Delay to Club World Cup
             </h2>
             <div className="flex">
-              <p>Sports</p>
+              <p className="text-left">Sports</p>
               <span className="flex items-center gap-2">
                 <SlCalender></SlCalender> Jan 4,2022
               </span>
@@ -51,7 +53,7 @@ const LeftSideNav = () => {
               Bayern Slams Authorities Over Flight Delay to Club World Cup
             </h2>
             <div className="flex">
-              <p>Sports</p>
+              <p className="text-left">Sports</p>
               <span className="flex items-center gap-2">
                 <SlCalender></SlCalender> Jan 4,2022
               </span>
@@ -67,7 +69,7 @@ const LeftSideNav = () => {
               Bayern Slams Authorities Over Flight Delay to Club World Cup
             </h2>
             <div className="flex">
-              <p>Sports</p>
+              <p className="text-left">Sports</p>
               <span className="flex items-center gap-2">
                 <SlCalender></SlCalender> Jan 4,2022
               </span>
